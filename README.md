@@ -26,8 +26,8 @@
 4. That's it
 
 This implement seperate into 2 parts:
-- __First part__ is finding best fundamental matrix with RANSAC. (fundamental_m.py)
-- __Second part__ is Triangulation 2D point coordinates to 3D point coordinate. (triangulation.py)
+- __First part__ is finding best fundamental matrix with RANSAC. (__fundamental_m.py__💜 )
+- __Second part__ is Triangulation 2D point coordinates to 3D point coordinate. (__triangulation.py__💜)
 - We already find our best fundamental matrix which was saved in .../saved_data/ in numpy array file (.nyp | F = np.load('saved_data/F.nyp')
     - F.nyp = our best fundamental matrix (241 inlier points from 296 possible matched points)
     - inlierp_a.nyp and inlierp_b.nyp = inlier points from RANSAC in both image A and image B (image A is dataset/twoview/sfm01.jpg image B is dataset/twoview/sfm02.jpg
