@@ -35,3 +35,9 @@ This implement seperate into 2 parts:
 - PLY is in the result folder
 
 (All code should run in python IDE (pychram, vscode...) which already have had code used all implemented function below.)
+
+What you should change:
+__fundamental_m.py__
+-   path of images: imga = image('dataset\mytwoview\IMG_0973.JPG'), imgb = image('dataset\mytwoview\IMG_0974.JPG')
+__triangulation.py__
+- path of numpy array data of F matix and inlier point in image A, B (default is in saved_data name: F.npy, inpts_a.npy, inpst_b.npy)
