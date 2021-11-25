@@ -30,21 +30,17 @@ def triangulation(inpts_a, inpts_b, Pa, Pb):
 
 if __name__ == '__main__':
     # load best fundamental matrix from 5points calibration with RANSAC
-    F = np.load('F.npy')
+    F = np.load('saved_data/myF.npy')
 
-    # inliers point in both images 241 points from 296 possible points
-    # poss_a = np.load('pts_a.npy')
-    # poss_b = np.load('pts_b.npy')
-    inpts_ah = np.load('inpts_a.npy')
-    inpts_bh = np.load('inpts_b.npy')
+    # inliers point load
+    inpts_ah = np.load('saved_data/myinpts_a.npy')
+    inpts_bh = np.load('saved_data/myinpts_b.npy')
     inpts_a = inpts_ah[:, :-1]
     inpts_b = inpts_bh[:, :-1]
-    # inpts_ah = np.hstack((inpts_a, np.ones((len(inpts_a), 1))))
-    # inpts_bh = np.hstack((inpts_b, np.ones((len(inpts_a), 1))))
 
     # given K1
     K = np.array([[3169.84457938945,0,0], [0,3175.76624926471,0], [2002.58874895650,1474.35045344207,1]])
-    #
+
     # essential matrix E = K1.T.*F.*K2
     E = np.dot(np.dot(K.T, F), K)
 
