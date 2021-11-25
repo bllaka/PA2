@@ -28,18 +28,18 @@ def concatImg(imga, imgb):
 def match(da, db, kpa, kpb):
     bf = cv2.BFMatcher()
     matches = bf.knnMatch(da, db, k=2)
-    good = []
+    good_matches = []
     for m,n in matches:
-        if m.distance < n.distance/1.2:
-            good.append([m])
+        if m.distance < n.distance/1.1:
+            good_matches.append([m])
     pts_a = []
     pts_b = []
-    for i in good:
+    for i in good_matches:
         pts_a.append(kpa[i[0].queryIdx].pt)
         pts_b.append(kpb[i[0].trainIdx].pt)
     pts_a = np.array(pts_a).astype(np.int)
     pts_b = np.array(pts_b).astype(np.int)
-    return good, pts_a, pts_b
+    return good_matches, pts_a, pts_b
 
 def plotCorr(imga, imgb, pts_a, pts_b):
     img = concatImg(imga, imgb)
